@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        #cont1
+        {
+            margin-top:10vh;
+            width:100%;
+            height:100%;
+
+        }
+        a{
+            width:200px;
+            margin:10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<body>
+<p style="font-size:400%;text-align:center;"><b>DISK SCHEDULING ALGORITHM</b></p>
+<div class="row"><div class="col push-m2">
+<div id="cont1">
+    <p style="font-size: 250%;"><b>INPUT</b></p>
+    <div class="row">
+    <div class="input-field col m4 s6">
+        <input id="ip1" type="text" class="validate">
+        <label for="ip1">Input</label>
+    </div>
+    </div>
+    <div class="row">
+    <div class="input-field col m4 s6">
+        <input id="ip2" type="text" class="validate">
+        <label for="ip2">Head</label>
+    </div>
+    </div>
+    <a class="waves-effect waves-light btn col" onclick="fcfs()">FCFS</a>
+    <a class="waves-effect waves-light btn col" onclick="sstf()">SSTF</a>
+    <a class="waves-effect waves-light btn col" onclick="scan()">SCAN</a>
+    <a class="waves-effect waves-light btn col" >C-LOOK</a>
+    <a class="waves-effect waves-light btn col" >C-SCAN</a>
+    <a class="waves-effect waves-light btn col" >LOOK</a>
+    <p style="font-size: 250%;"><b>OUTPUT</b></p>
+    <div class="row">
+        <div class="input-field col m4 s6">
+            <input id="op1" type="text" class="validate">
+            <label for="op1">Track Distance</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col m4 s6">
+            <input id="op2" type="text" class="validate">
+            <label for="op2">Output2</label>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="cont2" style="width:100%;margin-bottom: 20px;">
+    <canvas id="LineChart" style="height:100%;margin-right:30px;padding-right: 20px;"></canvas>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
