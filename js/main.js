@@ -332,8 +332,7 @@ function clook()
         cur=next;
         i++;
     }
-    res.push({x:200,y:-(++y)});
-    sum+=Math.abs(200-cur);
+
     cur=0;
     while(data.length)
     {
