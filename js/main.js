@@ -1,3 +1,4 @@
+//1,2,5,75,95,48,35,68,81
 var data=[],head,cur,next,res,sum=0,y=0;
 var data1=[];
 var LineChart;
@@ -105,16 +106,16 @@ function sstf()
         {
             if(i==0)
             {
-                min=parseInt(data[i]);
+                min=Math.abs(parseInt(data[i])-cur);
                 pos=i;
             }
-            else if(min>parseInt(data[i]))
+            else if(min>Math.abs(parseInt(data[i])-cur))
             {
-                min=parseInt(data[i]);
+                min=Math.abs(parseInt(data[i])-cur);
                 pos=i;
             }
         }
-        next=min;
+        next=parseInt(data[pos]);
         sum+=Math.abs(next-cur);
         if(next-cur>50)
         {y+=5;}
@@ -152,7 +153,7 @@ function scan()
             data2.push(parseInt(data[i]));
         }
     }
-    data2.sort();
+    data2.sort(function(a, b){return a - b});
     data2.reverse();
     i=0;
     var x;
@@ -175,22 +176,23 @@ function scan()
         i++;
     }
     res.push({x:0,y:-(++y)});
+
     while(data.length)
     {
         for(var i=0;i<data.length;i++)
         {
             if(i==0)
             {
-                min=parseInt(data[i]);
+                min=Math.abs(parseInt(data[i])-cur);
                 pos=i;
             }
-            else if(min>parseInt(data[i]))
+            else if(min>Math.abs(parseInt(data[i])-cur))
             {
-                min=parseInt(data[i]);
+                min=Math.abs(parseInt(data[i])-cur);
                 pos=i;
             }
         }
-        next=min;
+        next=parseInt(data[pos]);
         sum+=Math.abs(next-cur);
         if(next-cur>50)
         {y+=5;}
