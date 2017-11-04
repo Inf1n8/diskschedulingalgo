@@ -1,55 +1,60 @@
 var data=[],head,cur,next,res,sum=0,y=0;
 var data1=[];
+var LineChart;
 for(i=0;i<201;i++)
     data1.push(i);
 function graph(data1,res,title)
 {
-    var chart=document.getElementById("LineChart").getContext("2d");
-    var LineChart = new Chart(chart, {
+
+    var chart = document.getElementById("LineChart").getContext("2d");
+    if(LineChart!==undefined)
+        LineChart.destroy();
+    LineChart = new Chart(chart, {
         type: 'line',
-        data:{
-            labels:data1,
-            datasets:[
+        data: {
+            labels: data1,
+            datasets: [
                 {
-                    label:title,
-                    fill:false,
-                    borderColor:"rgba(75,192,192,0.9)",
-                    lineTension:0,
-                    borderCapStyle:'butt',
-                    borderDash:[],
-                    borderDashOffset:0.0,
-                    borderJoinStyle:'miter',
-                    pointBorderColor:"rgba(75,75,192,1)",
-                    pointBackgroundColor:"#fff",
-                    pointBorderWidth:1,
-                    pointHoverRadius:15,
-                    pointRadius:10,
-                    pointHitRadius:10,
-                    data:res
+                    label: title,
+                    fill: false,
+                    borderColor: "rgba(75,192,192,0.9)",
+                    lineTension: 0,
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: "rgba(75,75,192,1)",
+                    pointBackgroundColor: "#fff",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 15,
+                    pointRadius: 10,
+                    pointHitRadius: 10,
+                    data: res
 
                 }
-            ]},
-        options:{
-            scales:{
-                xAxes:[{
-                    type:"linear",
-                    position:"top",
-                    fontSize:72,
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    type: "linear",
+                    position: "top",
+                    fontSize: 72,
                     scaleLabel: {
                         display: true,
-                        labelString:"Cylinder",
+                        labelString: "Cylinder",
 
                     },
-                    ticks:{fontSize:12}
-                        }]
-                    },
-            title:{
-                display:true,
-                text:title,
-                fontSize:100,
-                fontColor:"#FF1493"
-                  }
-                }
+                    ticks: {fontSize: 12}
+                }]
+            },
+            title: {
+                display: true,
+                text: title,
+                fontSize: 100,
+                fontColor: "#FF1493"
+            }
+        }
 
     });
 
