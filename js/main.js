@@ -173,10 +173,11 @@ function scan()
         temp=JSON.parse(temp);
         res.push(temp);
         data.splice(x,1);
+        cur=next;
         i++;
     }
     res.push({x:0,y:-(++y)});
-
+    sum+=Math.abs(0-cur);
     while(data.length)
     {
         for(var i=0;i<data.length;i++)
@@ -211,6 +212,245 @@ function scan()
     document.getElementById("op1").value=sum;
 
 }
+
+function look()
+{
+    var input=document.getElementById("ip1").value;
+    var input2=document.getElementById("ip2").value;
+    data=input.split(",");
+    var data2=[];
+    cur=parseInt(input2);
+    sum=0;
+    y=0;
+    res=[{x:cur,y:0}];
+    var pos=[];
+    for(var i=0;i<data.length;i++)
+    {
+        if(parseInt(data[i])<cur)
+        {
+            pos.push(i);
+            data2.push(parseInt(data[i]));
+        }
+    }
+    data2.sort(function(a, b){return a - b});
+    data2.reverse();
+    i=0;
+    var x;
+    var len=data2.length;
+    while(len--)
+    {
+        next=data2[i];
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        x=pos.pop();
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(x,1);
+        cur=next;
+        i++;
+    }
+
+    while(data.length)
+    {
+        for(var i=0;i<data.length;i++)
+        {
+            if(i==0)
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+            else if(min>Math.abs(parseInt(data[i])-cur))
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+        }
+        next=parseInt(data[pos]);
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(pos,1);
+        cur=next;
+    }
+    var title="LOOK DISK SCHEDULING ALGORITHM";
+    graph(data1,res,title);
+    document.getElementById("op1").value=sum;
+
+}
+
+function clook()
+{
+    var input=document.getElementById("ip1").value;
+    var input2=document.getElementById("ip2").value;
+    data=input.split(",");
+    var data2=[];
+    cur=parseInt(input2);
+    sum=0;
+    y=0;
+    res=[{x:cur,y:0}];
+    var pos=[];
+    for(var i=0;i<data.length;i++)
+    {
+        if(parseInt(data[i])>cur)
+        {
+            pos.push(i);
+            data2.push(parseInt(data[i]));
+        }
+    }
+    data2.sort(function(a, b){return a - b});
+    i=0;
+    var x;
+    var len=data2.length;
+    while(len--)
+    {
+        next=data2[i];
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        x=pos.pop();
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(x,1);
+        cur=next;
+        i++;
+    }
+    res.push({x:200,y:-(++y)});
+    sum+=Math.abs(200-cur);
+    cur=0;
+    while(data.length)
+    {
+        for(var i=0;i<data.length;i++)
+        {
+            if(i==0)
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+            else if(min>Math.abs(parseInt(data[i])-cur))
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+        }
+        next=parseInt(data[pos]);
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(pos,1);
+        cur=next;
+    }
+    var title="C-LOOK DISK SCHEDULING ALGORITHM";
+    graph(data1,res,title);
+    document.getElementById("op1").value=sum;
+
+}
+
+function cscan()
+{
+    var input=document.getElementById("ip1").value;
+    var input2=document.getElementById("ip2").value;
+    data=input.split(",");
+    var data2=[];
+    cur=parseInt(input2);
+    sum=0;
+    y=0;
+    res=[{x:cur,y:0}];
+    var pos=[];
+    for(var i=0;i<data.length;i++)
+    {
+        if(parseInt(data[i])>cur)
+        {
+            pos.push(i);
+            data2.push(parseInt(data[i]));
+        }
+    }
+    data2.sort(function(a, b){return a - b});
+    i=0;
+    var x;
+    var len=data2.length;
+    while(len--)
+    {
+        next=data2[i];
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        x=pos.pop();
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(x,1);
+        cur=next;
+        i++;
+    }
+    res.push({x:200,y:-(++y)});
+    sum+=Math.abs(200-cur);
+    res.push({x:0,y:-(++y)});
+    cur=0;
+    while(data.length)
+    {
+        for(var i=0;i<data.length;i++)
+        {
+            if(i==0)
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+            else if(min>Math.abs(parseInt(data[i])-cur))
+            {
+                min=Math.abs(parseInt(data[i])-cur);
+                pos=i;
+            }
+        }
+        next=parseInt(data[pos]);
+        sum+=Math.abs(next-cur);
+        if(next-cur>50)
+        {y+=5;}
+        else if(next-cur>30)
+        {y+=3;}
+        else
+        {y+=2;}
+        var temp=`{"x":${next},"y":${-y}}`;
+        temp=JSON.parse(temp);
+        res.push(temp);
+        data.splice(pos,1);
+        cur=next;
+    }
+    var title="C-SCAN DISK SCHEDULING ALGORITHM";
+    graph(data1,res,title);
+    document.getElementById("op1").value=sum;
+
+
+}
+
 $(function () {
     $('#op1,#op2').val('0').siblings('label').addClass('active');
 });
